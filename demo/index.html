@@ -34,7 +34,9 @@
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="../dist/js/by-radio.min.js"></script>
 <script>
-$('input').byRadio()
+$(function() {
+  $('input[type="radio"], input[type="checkbox"]').byRadio();
+});
 </script>
 </body>
 </html>

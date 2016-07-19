@@ -58,9 +58,10 @@ function Plugin(option) {
   return this.each(function() {
     var $this   = $(this)
     var data    = $this.data('byRadio')
-    var options = $.extend({}, Radio.DEFAULTS, $this.data(), typeof option == 'object' && option)
+    var options = $.extend({}, Radio.DEFAULTS, $this.data(), typeof option === 'object' && option)
 
     if (!data) $this.data('byRadio', (data = new Radio(this, options)))
+    if (typeof option === 'string' && typeof data[option] === 'function') data[option]()
   })
 }
 

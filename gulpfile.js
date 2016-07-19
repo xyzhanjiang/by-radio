@@ -5,6 +5,8 @@ var cssnano = require('gulp-cssnano');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
 
 gulp.task('js', function() {
   return gulp.src('src/js/by-radio.js')
@@ -32,6 +34,16 @@ gulp.task('css', function() {
     .pipe(rename({extname: '.min.css'}))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist/css'));
+});
+
+gulp.task('serve', function() {
+  browserSync({
+    server: {
+      baseDir: 'demo'
+    }
+  });
+
+  gulp.watch(['*.html', '../dist/css/*.css', '../js/*.js'], {cwd: 'app'}, reload);
 });
 
 gulp.task('default', ['js', 'css']);
