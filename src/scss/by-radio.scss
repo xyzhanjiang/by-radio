@@ -90,26 +90,25 @@
 .by-checkbox label {
   &::before,
   &::after {
-    background-color: $by-radio-color;
     content: " ";
+    height: 0;
     position: absolute;
-    transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    transition: height 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    transform-origin: left top;
   }
 }
 
 .by-checkbox label::before {
-  height: 10px;
-  left: 6px;
-  top: 2px;
-  transform: scale(0, 0) rotate(45deg);
+  left: 5px;
+  top: 12px;
+  transform: rotate(-135deg);
   width: 3px;
 }
 
 .by-checkbox label::after {
-  height: 6px;
-  left: 2px;
-  top: 5px;
-  transform: scale(0, 0) rotate(135deg);
+  left: 0;
+  top: 7px;
+  transform: rotate(-45deg);
   width: 3px;
 }
 
@@ -128,12 +127,12 @@
 
 .by-checkbox input[type="checkbox"]:checked + label::before {
   background-color: $by-radio-bg;
-  transform: scale(1, 1) rotate(45deg);
+  height: 11px;
 }
 
 .by-checkbox input[type="checkbox"]:checked + label::after {
   background-color: $by-radio-bg;
-  transform: scale(1, 1) rotate(135deg);
+  height: 6px;
 }
 
 .by-checkbox input[type="checkbox"]:checked:disabled + label {

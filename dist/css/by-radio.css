@@ -85,30 +85,29 @@
   top: 0; }
 
 .by-checkbox label::before, .by-checkbox label::after {
-  background-color: #f88415;
   content: " ";
+  height: 0;
   position: absolute;
-  -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-  transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-  transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-  transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33), -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33); }
+  -webkit-transition: height 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  transition: height 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  -webkit-transform-origin: left top;
+  -ms-transform-origin: left top;
+  transform-origin: left top; }
 
 .by-checkbox label::before {
-  height: 10px;
-  left: 6px;
-  top: 2px;
-  -webkit-transform: scale(0, 0) rotate(45deg);
-  -ms-transform: scale(0, 0) rotate(45deg);
-  transform: scale(0, 0) rotate(45deg);
+  left: 5px;
+  top: 12px;
+  -webkit-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  transform: rotate(-135deg);
   width: 3px; }
 
 .by-checkbox label::after {
-  height: 6px;
-  left: 2px;
-  top: 5px;
-  -webkit-transform: scale(0, 0) rotate(135deg);
-  -ms-transform: scale(0, 0) rotate(135deg);
-  transform: scale(0, 0) rotate(135deg);
+  left: 0;
+  top: 7px;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
   width: 3px; }
 
 .by-checkbox input[type="checkbox"]:focus + label {
@@ -123,15 +122,11 @@
 
 .by-checkbox input[type="checkbox"]:checked + label::before {
   background-color: #fff;
-  -webkit-transform: scale(1, 1) rotate(45deg);
-  -ms-transform: scale(1, 1) rotate(45deg);
-  transform: scale(1, 1) rotate(45deg); }
+  height: 11px; }
 
 .by-checkbox input[type="checkbox"]:checked + label::after {
   background-color: #fff;
-  -webkit-transform: scale(1, 1) rotate(135deg);
-  -ms-transform: scale(1, 1) rotate(135deg);
-  transform: scale(1, 1) rotate(135deg); }
+  height: 6px; }
 
 .by-checkbox input[type="checkbox"]:checked:disabled + label {
   background-color: #fff;

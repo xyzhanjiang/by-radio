@@ -17,7 +17,7 @@
   }
 }(this, function($) {
 
-var Radio = function (element, options) {
+var Radio = function(element, options) {
   this.$el     = $(element)
   this.options = $.extend({}, Radio.DEFAULTS, options)
   this.isInitialized = null
@@ -27,6 +27,7 @@ var Radio = function (element, options) {
 Radio.prototype.init = function() {
   var $parent
     , el = this.$el[0]
+    , id = el.id
 
   if (this.isInitialized) return
 
@@ -37,7 +38,12 @@ Radio.prototype.init = function() {
     el.className = ''
   }
 
-  $parent.append('<label for="' + el.id + '"></label>')
+  if (!id) {
+    id = 'by-radio-' + new Date().getTime()
+    el.id = id
+  }
+
+  $parent.append('<label for="' + id + '"></label>')
   this.isInitialized = true
 }
 

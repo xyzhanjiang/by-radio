@@ -1,4 +1,4 @@
-# Radio Plugin
+# By Radio
 
 A radio and checkbox plugin without image.
 
