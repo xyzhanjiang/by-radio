@@ -40,4 +40,4 @@ A radio and checkbox plugin without image.
 
 ## License
 
-[MIT License](https://zenorocha.mit-license.org)
+MIT License
