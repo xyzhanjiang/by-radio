@@ -17,6 +17,7 @@
     "gulp-uglify": "^1.5.4"
   },
   "scripts": {
+    "test": "echo 1"
     "production": "gulp"
   },
   "author": "",
