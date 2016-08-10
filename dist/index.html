@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- saved from url=(0014)about:internet -->
+<meta charset="UTF-8">
+<title>Radio Example</title>
+<link rel="stylesheet" href="css/by-radio.min.css">
+</head>
+
+<body>
+<form action="#" method="post">
+  <fieldset>
+    <input class="radio" id="radio1" name="sex" type="radio" value="male">
+    <label for="radio1">Male</label>
+    <input id="radio2" name="sex" type="radio" value="female">
+    <label for="radio2">Female</label>
+    <input disabled id="radio3" name="sex" type="radio" value="disabled">
+    <label for="radio3">Disabled</label>
+    <input checked disabled id="radio4" name="sex" type="radio" value="disabled-checked">
+    <label for="radio4">Disabled-Checked</label>
+    <hr>
+    <input id="checkbox1" name="favourite" type="checkbox" value="apple">
+    <label for="checkbox1">Apple</label>
+    <input id="checkbox2" name="favourite" type="checkbox" value="orange">
+    <label for="checkbox2">Orange</label>
+    <input id="checkbox3" name="favourite" type="checkbox" value="banana">
+    <label for="checkbox3">Banana</label>
+    <input disabled id="checkbox4" name="favourite" type="checkbox" value="disabled">
+    <label for="checkbox4">Disabled</label>
+    <input checked disabled id="checkbox5" name="favourite" type="checkbox" value="disabled-checked">
+    <label for="checkbox5">Disabled-Checked</label>
+  </fieldset>
+</form>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="js/by-radio.min.js"></script>
+<script>
+$(function() {
+  $('input[type="radio"], input[type="checkbox"]').byRadio()
+})
+</script>
+</body>
+</html>

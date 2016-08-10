@@ -1,5 +1,7 @@
 var gulp   = require('gulp');
 var uglify = require('gulp-uglify');
+// var babel = require('gulp-babel');
+var umd = require('gulp-umd');
 var sass = require('gulp-sass');
 var cssnano = require('gulp-cssnano');
 var autoprefixer = require('gulp-autoprefixer');
@@ -10,6 +12,29 @@ var reload = browserSync.reload;
 
 gulp.task('js', function() {
   return gulp.src('src/js/by-radio.js')
+    /* .pipe(babel({
+      presets: ['es2015'],
+      plugins: ['transform-es2015-modules-umd']
+    })) */
+    .pipe(umd({
+      dependencies: function(file) {
+        return [
+          {
+            name: 'jQuery',
+            amd: 'jquery',
+            cjs: 'jquery',
+            global: 'jQuery',
+            param: '$'
+          }
+        ];
+      },
+      exports: function(file) {
+        return 'Plugin';
+      },
+      namespace: function(file) {
+        return 'ByRadio';
+      }
+    }))
     .pipe(gulp.dest('dist/js'))
     .pipe(sourcemaps.init())
     .pipe(uglify())
@@ -39,7 +64,7 @@ gulp.task('css', function() {
 gulp.task('serve', function() {
   browserSync({
     server: {
-      baseDir: './'
+      baseDir: './dist'
     }
   });
 

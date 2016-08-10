@@ -1,3 +1,12 @@
+;(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['jquery'], factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory(require('jquery'));
+  } else {
+    root.ByRadio = factory(root.jQuery);
+  }
+}(this, function($) {
 /*!
  * Radio.js
  * Copyright (c) 2016 xyzhanjiang & contributors
@@ -7,19 +16,9 @@
  * @author xyzhanjiang <xyzhanjiang@qq.com>
  */
 
-+(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define(['jquery'], factory)
-  } else if (typeof module === 'object' && typeof module.exports === 'object') {
-    module.exports = factory(require('jquery'))
-  } else {
-    factory(root.jQuery)
-  }
-}(this, function($) {
-
 var Radio = function(element, options) {
-  this.$el     = $(element)
-  this.options = $.extend({}, Radio.DEFAULTS, options)
+  this.$el           = $(element)
+  this.options       = $.extend({}, Radio.DEFAULTS, options)
   this.isInitialized = null
   this.init()
 }
@@ -43,7 +42,7 @@ Radio.prototype.init = function() {
     el.id = id
   }
 
-  $parent.append('<label for="' + id + '"></label>')
+  $parent.append('<label for="' + id + '}"></label>')
   this.isInitialized = true
 }
 
@@ -73,6 +72,5 @@ function Plugin(option) {
 
 $.fn.byRadio = Plugin
 
-return Plugin
-
-}))
+return Plugin;
+}));
