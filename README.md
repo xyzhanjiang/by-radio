@@ -33,6 +33,19 @@ A radio and checkbox plugin without image.
   $('input[type="radio"], input[type="checkbox"]').byRadio('destroy')
   ```
 
+### Only use the style
+
+Also you can only use the style, but You must write the html by yourself
+
+``` html
+<link rel="stylesheet" href="dist/css/by-radio.css">
+
+<div class="by-radio">
+  <input id="radio-example" name="gender" type="radio" value="female">
+  <label for="radio-example"></label>
+</div>
+```
+
 ## Browser support
 
 * Modern browsers

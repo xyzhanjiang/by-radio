@@ -26,7 +26,7 @@
  * ==============================================
  */
 
-.by-radio label {
+.by-radio input[type="radio"] + label {
   &::before,
   &::after {
     border-radius: 50%;
@@ -35,17 +35,17 @@
   }
 }
 
-.by-radio label::before {
+.by-radio input[type="radio"] + label::before {
   background-color: $by-radio-bg;
   border: 1px solid #aaa;
   height: 13px;
   width: 13px;
 }
 
-.by-radio label::after {
+.by-radio input[type="radio"] + label::after {
   background-color: $by-radio-color;
   height: 9px;
-  transform: scale(0, 0);
+  transform: scale(0);
   transition: transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
   width: 9px;
 }
@@ -60,11 +60,16 @@
 
 .by-radio input[type="radio"]:checked + label::after {
   background-color: $by-radio-color;
-  transform: scale(1, 1);
+  transform: scale(1);
+}
+
+.by-radio input[type="radio"]:disabled + label {
+  cursor: not-allowed;
 }
 
 .by-radio input[type="radio"]:disabled + label::before {
-  border-color: $by-radio-border;
+  background-color: #eee;
+  border-color: #ddd;
 }
 
 .by-radio input[type="radio"]:disabled + label::after {
@@ -76,73 +81,57 @@
  * ==============================================
  */
 
-.by-checkbox input[type="checkbox"]:checked + label,
-.by-checkbox input[type="checkbox"]:not(:checked) + label {
+.by-checkbox input[type="checkbox"] + label {
+  &::before,
+  &::after {
+    content: " ";
+    @include center();
+  }
+}
+
+.by-checkbox input[type="checkbox"] + label::before {
   background-color: $by-radio-bg;
   border: 1px solid #aaa;
   border-radius: 3px;
-  content: " ";
   height: 13px;
+  transition: all 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
   width: 13px;
   @include center();
 }
 
-.by-checkbox label {
-  &::before,
-  &::after {
-    content: " ";
-    height: 0;
-    position: absolute;
-    transition: height 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-    transform-origin: left top;
-  }
+.by-checkbox input[type="checkbox"] + label::after {
+  background: transparent;
+  border: 0 solid #fff;
+  border-width: 0 0 3px 3px;
+  height: 3px;
+  transform: scale(0) rotate(-45deg);
+  transition: transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  width: 6px;
 }
 
-.by-checkbox label::before {
-  left: 5px;
-  top: 12px;
-  transform: rotate(-135deg);
-  width: 3px;
-}
-
-.by-checkbox label::after {
-  left: 0;
-  top: 7px;
-  transform: rotate(-45deg);
-  width: 3px;
-}
-
-.by-checkbox input[type="checkbox"]:focus + label {
+.by-checkbox input[type="checkbox"]:focus + label::before {
   outline: 1px dotted $by-radio-border;
 }
 
-.by-checkbox input[type="checkbox"]:disabled + label {
-  border-color: $by-radio-border;
-}
-
-.by-checkbox input[type="checkbox"]:checked + label {
+.by-checkbox input[type="checkbox"]:checked + label::before {
   background-color: $by-radio-color;
   border-color: $by-radio-color;
 }
 
-.by-checkbox input[type="checkbox"]:checked + label::before {
-  background-color: $by-radio-bg;
-  height: 11px;
-}
-
 .by-checkbox input[type="checkbox"]:checked + label::after {
-  background-color: $by-radio-bg;
-  height: 6px;
+  transform: scale(1) rotate(-45deg);
 }
 
-.by-checkbox input[type="checkbox"]:checked:disabled + label {
-  background-color: $by-radio-bg;
+.by-checkbox input[type="checkbox"]:disabled + label::before {
+  background-color: #eee;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+
+.by-checkbox input[type="checkbox"]:checked:disabled + label::before {
   border-color: $by-radio-border;
 }
 
-.by-checkbox input[type="checkbox"]:checked:disabled + label {
-  &::before,
-  &::after {
-    background-color: $by-radio-border;
-  }
+.by-checkbox input[type="checkbox"]:checked:disabled + label::after {
+  border-color: $by-radio-border;
 }

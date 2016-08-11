@@ -33,7 +33,7 @@ Radio.prototype.init = function() {
     el.id = id
   }
 
-  $parent.append('<label for="' + id + '}"></label>')
+  $parent.append('<label for="' + id + '"></label>')
   this.isInitialized = true
 }
 

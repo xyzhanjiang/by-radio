@@ -1,6 +1,6 @@
 var gulp   = require('gulp');
 var uglify = require('gulp-uglify');
-// var babel = require('gulp-babel');
+var babel = require('gulp-babel');
 var umd = require('gulp-umd');
 var sass = require('gulp-sass');
 var cssnano = require('gulp-cssnano');
@@ -12,10 +12,9 @@ var reload = browserSync.reload;
 
 gulp.task('js', function() {
   return gulp.src('src/js/by-radio.js')
-    /* .pipe(babel({
-      presets: ['es2015'],
-      plugins: ['transform-es2015-modules-umd']
-    })) */
+    .pipe(babel({
+      presets: ['es2015']
+    }))
     .pipe(umd({
       dependencies: function(file) {
         return [
