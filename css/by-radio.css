@@ -1,0 +1,137 @@
+/**
+ * Radio.js
+ * Copyright (c) 2016 xyzhanjiang & contributors
+ *
+ * Licensed under the MIT License.
+ *
+ * @author xyzhanjiang <xyzhanjiang@qq.com>
+ */
+.by-radio,
+.by-checkbox {
+  display: inline-block;
+  min-height: 15px;
+  min-width: 15px;
+  position: relative; }
+
+.by-radio input[type="radio"],
+.by-checkbox input[type="checkbox"] {
+  opacity: 0; }
+
+/*
+ * Radio
+ * ==============================================
+ */
+.by-radio input[type="radio"] + label::before, .by-radio input[type="radio"] + label::after {
+  border-radius: 50%;
+  content: " ";
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.by-radio input[type="radio"] + label::before {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  height: 13px;
+  width: 13px; }
+
+.by-radio input[type="radio"] + label::after {
+  background-color: #f88415;
+  height: 9px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  transition: -webkit-transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  transition: transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  transition: transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33), -webkit-transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  width: 9px; }
+
+.by-radio input[type="radio"]:focus + label::before {
+  outline: 1px dotted #ccc; }
+
+.by-radio input[type="radio"]:checked + label::before {
+  border-color: #f88415; }
+
+.by-radio input[type="radio"]:checked + label::after {
+  background-color: #f88415;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1); }
+
+.by-radio input[type="radio"]:disabled + label {
+  cursor: not-allowed; }
+
+.by-radio input[type="radio"]:disabled + label::before {
+  background-color: #eee;
+  border-color: #ddd; }
+
+.by-radio input[type="radio"]:disabled + label::after {
+  background-color: #ccc; }
+
+/*
+ * Checkbox
+ * ==============================================
+ */
+.by-checkbox input[type="checkbox"] + label::before, .by-checkbox input[type="checkbox"] + label::after {
+  content: " ";
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.by-checkbox input[type="checkbox"] + label:before {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  height: 13px;
+  -webkit-transition: all 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  transition: all 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  width: 13px;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.by-checkbox input[type="checkbox"] + label:after {
+  background: transparent;
+  border: 0 solid #fff;
+  border-width: 0 0 3px 3px;
+  height: 3px;
+  -webkit-transform: scale(0) rotate(-45deg);
+  -ms-transform: scale(0) rotate(-45deg);
+  transform: scale(0) rotate(-45deg);
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  transition: -webkit-transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  transition: transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  transition: transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33), -webkit-transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  width: 6px; }
+
+.by-checkbox input[type="checkbox"]:focus + label:before {
+  outline: 1px dotted #ccc; }
+
+.by-checkbox input[type="checkbox"]:checked + label:before {
+  background-color: #f88415;
+  border-color: #f88415; }
+
+.by-checkbox input[type="checkbox"]:checked + label:after {
+  -webkit-transform: scale(1) rotate(-45deg);
+  -ms-transform: scale(1) rotate(-45deg);
+  transform: scale(1) rotate(-45deg); }
+
+.by-checkbox input[type="checkbox"]:disabled + label:before {
+  background-color: #eee;
+  border-color: #ddd;
+  cursor: not-allowed; }
+
+.by-checkbox input[type="checkbox"]:checked:disabled + label:before {
+  border-color: #ccc; }
+
+.by-checkbox input[type="checkbox"]:checked:disabled + label:after {
+  border-color: #ccc; }
