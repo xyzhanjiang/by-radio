@@ -24,7 +24,6 @@ var Radio = function Radio(element, options) {
   this.$el = $(element);
   this.options = $.extend({}, Radio.DEFAULTS, options);
   this.isInitialized = null;
-  this.init();
 };
 
 Radio.prototype.init = function () {
@@ -66,7 +65,7 @@ function Plugin(option) {
     var options = $.extend({}, Radio.DEFAULTS, $this.data(), (typeof option === 'undefined' ? 'undefined' : _typeof(option)) === 'object' && option);
 
     if (!data) $this.data('byRadio', data = new Radio(this, options));
-    if (typeof option === 'string' && typeof data[option] === 'function') data[option]();
+    if (typeof option === 'string' && typeof data[option] === 'function') data[option]();else data.init();
   });
 }
 

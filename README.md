@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/xyzhanjiang/by-radio.svg?branch=master)](https://travis-ci.org/xyzhanjiang/by-radio)
 
-A radio and checkbox plugin without image.
+A radio and checkbox plugin without image.[Demo](https://xyzhanjiang.github.io/by-radio/)
 
 ## Usage
 
