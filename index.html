@@ -71,11 +71,25 @@
 <label for="checkbox5">Disabled-Checked</label>
 
 <hr>
+<p>State:</p>
+<input id="checkbox-6" type="checkbox">
+<label for="checkbox-6">Destroy</label>
+<button id="check-check" type="button">Check</button>
+<button id="check-indeterminate" type="button">Indeterminate</button>
+<button id="check-disable" type="button">Disable</button>
+<button id="check-enable" type="button">Enable</button>
+
+<hr>
 <p>Destroy:</p>
-<input id="checkbox6" type="checkbox">
-<label for="checkbox6">Destroy</label>
+<input id="checkbox-7" type="checkbox">
+<label for="checkbox-7">Destroy</label>
 <button id="check-destroy" type="button">Destroy</button>
 <button id="check-create" type="button">Create</button>
+
+<h3>Switch</h3>
+
+<label for="switch-1">Wifi:</label>
+<input data-type="switch" id="switch-1" name="switch" type="checkbox" value="on">
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
@@ -106,11 +120,25 @@
 $(function() {
   $('input[type="radio"], input[type="checkbox"]').byRadio()
 
-  $(document).on('click', '#check-destroy', function() {
-    $('#checkbox6').byRadio('destroy')
-  }).on('click', '#check-create', function() {
-    $('#checkbox6').byRadio()
-  })
+  $(document)
+    .on('click', '#check-check', function() {
+      $('#checkbox-6').prop('checked', !$('#checkbox-6').prop('checked'))
+    })
+    .on('click', '#check-indeterminate', function() {
+      $('#checkbox-6')[0].indeterminate = true
+    })
+    .on('click', '#check-disable', function() {
+      $('#checkbox-6').prop('disabled', true)
+    })
+    .on('click', '#check-enable', function() {
+      $('#checkbox-6').prop('disabled', false)
+    })
+    .on('click', '#check-destroy', function() {
+      $('#checkbox-7').byRadio('destroy')
+    })
+    .on('click', '#check-create', function() {
+      $('#checkbox-7').byRadio()
+    })
 })
 </script>
   </body>
