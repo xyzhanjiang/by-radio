@@ -1,6 +1,6 @@
 {
   "name": "by-radio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A radio and checkbox plugin without image.",
   "main": "dist/js/by-radio.js",
   "dependencies": {},

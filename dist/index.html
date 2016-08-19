@@ -29,14 +29,12 @@
     <label for="checkbox4">Disabled</label>
     <input checked disabled id="checkbox5" name="favourite" type="checkbox" value="disabled-checked">
     <label for="checkbox5">Disabled-Checked</label>
+    <hr>
+    <input data-init="by-radio" data-type="switch" id="switch-1" name="favourite" type="checkbox" value="apple">
   </fieldset>
 </form>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="js/by-radio.min.js"></script>
-<script>
-$(function() {
-  $('input[type="radio"], input[type="checkbox"]').byRadio()
-})
-</script>
+
 </body>
 </html>

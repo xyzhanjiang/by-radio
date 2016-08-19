@@ -7,14 +7,16 @@
  * @author xyzhanjiang <xyzhanjiang@qq.com>
  */
 .by-radio,
-.by-checkbox {
+.by-checkbox,
+.by-switch {
   display: inline-block;
   min-height: 15px;
   min-width: 15px;
   position: relative; }
 
 .by-radio input[type="radio"],
-.by-checkbox input[type="checkbox"] {
+.by-checkbox input[type="checkbox"],
+.by-switch input[type="checkbox"] {
   opacity: 0; }
 
 /*
@@ -107,16 +109,13 @@
   -webkit-transform: scale(0) rotate(-45deg);
   -ms-transform: scale(0) rotate(-45deg);
   transform: scale(0) rotate(-45deg);
-  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-  transition: -webkit-transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-  transition: transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-  transition: transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33), -webkit-transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
   width: 6px; }
 
 .by-checkbox input[type="checkbox"]:focus + label:before {
   outline: 1px dotted #ccc; }
 
-.by-checkbox input[type="checkbox"]:checked + label:before {
+.by-checkbox input[type="checkbox"]:checked + label:before,
+.by-checkbox input[type="checkbox"]:indeterminate + label:before {
   background-color: #f88415;
   border-color: #f88415; }
 
@@ -135,3 +134,56 @@
 
 .by-checkbox input[type="checkbox"]:checked:disabled + label:after {
   border-color: #ccc; }
+
+.by-checkbox input[type="checkbox"]:indeterminate + label:after {
+  background-color: #fff;
+  border: 0;
+  height: 3px;
+  -webkit-transform: scale(1) rotate(0);
+  -ms-transform: scale(1) rotate(0);
+  transform: scale(1) rotate(0);
+  width: 9px; }
+
+.by-checkbox input[type="checkbox"]:indeterminate:disabled + label:after {
+  background-color: #ccc; }
+
+/*
+ * Switch
+ * ==============================================
+ */
+.by-switch input[type="checkbox"] + label {
+  cursor: pointer; }
+
+.by-switch input[type="checkbox"] + label::before {
+  background-color: #e0e0e0;
+  border-radius: 24px;
+  content: " ";
+  height: 24px;
+  left: 0;
+  position: absolute;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  top: 0;
+  width: 48px; }
+
+.by-switch input[type="checkbox"] + label::after {
+  background-color: #fff;
+  border-radius: 20px;
+  content: " ";
+  height: 20px;
+  left: 2px;
+  position: absolute;
+  top: 2px;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  width: 20px; }
+
+.by-switch input[type="checkbox"]:checked + label::before {
+  background-color: #f88415; }
+
+.by-switch input[type="checkbox"]:checked + label::after {
+  -webkit-transform: translateX(24px);
+  -ms-transform: translateX(24px);
+  transform: translateX(24px); }

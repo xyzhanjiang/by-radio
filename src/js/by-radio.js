@@ -13,14 +13,18 @@ var Radio = function(element, options) {
   this.isInitialized = null
 }
 
+/*
+ * @description init
+ */
 Radio.prototype.init = function() {
   var $parent
     , el = this.$el[0]
     , id = el.id
+    , type = this.options.type || el.type
 
   if (this.isInitialized) return
 
-  $parent = this.$el.wrap('<div class="by-' + el.type + '">').parent()
+  $parent = this.$el.wrap('<div class="by-' + type + '">').parent()
 
   if (el.className) {
     $parent.addClass(el.className)
@@ -36,6 +40,9 @@ Radio.prototype.init = function() {
   this.isInitialized = true
 }
 
+/*
+ * @description destroy
+ */
 Radio.prototype.destroy = function() {
   if (!this.isInitialized) return
 
@@ -53,7 +60,7 @@ function Plugin(option) {
   return this.each(function() {
     var $this   = $(this)
     var data    = $this.data('byRadio')
-    var options = $.extend({}, Radio.DEFAULTS, $this.data(), typeof option === 'object' && option)
+    var options = $.extend({}, $this.data(), typeof option === 'object' && option)
 
     if (!data) $this.data('byRadio', (data = new Radio(this, options)))
     if (typeof option === 'string' && typeof data[option] === 'function') data[option]()
@@ -62,3 +69,7 @@ function Plugin(option) {
 }
 
 $.fn.byRadio = Plugin
+
+$(window).on('load.by.radio', function() {
+  Plugin.call($('[data-init="by-radio"]'))
+})

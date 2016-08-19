@@ -11,7 +11,8 @@
 @import "mixins";
 
 .by-radio,
-.by-checkbox {
+.by-checkbox,
+.by-switch {
   display: inline-block;
   min-height: 15px;
   min-width: 15px;
@@ -19,7 +20,8 @@
 }
 
 .by-radio input[type="radio"],
-.by-checkbox input[type="checkbox"] {
+.by-checkbox input[type="checkbox"],
+.by-switch input[type="checkbox"] {
   opacity: 0;
 }
 
@@ -107,7 +109,6 @@
   border-width: 0 0 3px 3px;
   height: 3px;
   transform: scale(0) rotate(-45deg);
-  transition: transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
   width: 6px;
 }
 
@@ -115,7 +116,8 @@
   outline: 1px dotted $by-radio-border;
 }
 
-.by-checkbox input[type="checkbox"]:checked + label:before {
+.by-checkbox input[type="checkbox"]:checked + label:before,
+.by-checkbox input[type="checkbox"]:indeterminate + label:before {
   background-color: $by-radio-color;
   border-color: $by-radio-color;
 }
@@ -136,4 +138,57 @@
 
 .by-checkbox input[type="checkbox"]:checked:disabled + label:after {
   border-color: $by-radio-border;
+}
+
+.by-checkbox input[type="checkbox"]:indeterminate + label:after {
+  background-color: #fff;
+  border: 0;
+  height: 3px;
+  transform: scale(1) rotate(0);
+  width: 9px;
+}
+
+.by-checkbox input[type="checkbox"]:indeterminate:disabled + label:after {
+  background-color: $by-radio-border;
+}
+
+/*
+ * Switch
+ * ==============================================
+ */
+
+.by-switch input[type="checkbox"] + label {
+  cursor: pointer;
+}
+
+.by-switch input[type="checkbox"] + label::before {
+  background-color: #e0e0e0;
+  border-radius: 24px;
+  content: " ";
+  height: 24px;
+  left: 0;
+  position: absolute;
+  transition: background-color 0.3s;
+  top: 0;
+  width: 48px;
+}
+
+.by-switch input[type="checkbox"] + label::after {
+  background-color: #fff;
+  border-radius: 20px;
+  content: " ";
+  height: 20px;
+  left: 2px;
+  position: absolute;
+  top: 2px;
+  transition: transform 0.3s;
+  width: 20px;
+}
+
+.by-switch input[type="checkbox"]:checked + label::before {
+  background-color: $by-radio-color;
+}
+
+.by-switch input[type="checkbox"]:checked + label::after {
+  transform: translateX(24px);
 }

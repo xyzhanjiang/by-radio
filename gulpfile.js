@@ -7,7 +7,7 @@ var cssnano = require('gulp-cssnano');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 
 gulp.task('js', function() {
@@ -61,13 +61,15 @@ gulp.task('css', function() {
 });
 
 gulp.task('serve', function() {
-  browserSync({
+  browserSync.init({
     server: {
       baseDir: './dist'
     }
   });
 
-  gulp.watch(['*.html', '../dist/css/*.css', '../js/*.js'], {cwd: 'app'}, reload);
+  gulp.watch('src/js/*.js', ['js']);
+  gulp.watch('src/scss/**/*.scss', ['css']);
+  gulp.watch('dist/*.html').on('change', reload);
 });
 
 gulp.task('default', ['js', 'css']);
