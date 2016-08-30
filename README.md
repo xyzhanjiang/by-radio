@@ -9,7 +9,7 @@ A radio and checkbox plugin without image. [Demo](https://xyzhanjiang.github.io/
 1. Include jQuery:
 
   ``` html
-  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="/js/libs/jquery-1.11.2.min.js"></script>
   ```
 
 2. Include plugin's code:
@@ -45,6 +45,22 @@ Also you can only use the style, but You must write the html by yourself
   <label for="radio-example"></label>
 </div>
 ```
+
+### Options
+
+* type
+
+  ``` javascript
+  $('input[type="checkbox"]').byRadio({
+    type: 'switch'
+  })
+  ```
+
+  data attribute:
+
+  ``` html
+  <input data-type="switch" type="checkbox">
+  ```
 
 ## Browser support
 
