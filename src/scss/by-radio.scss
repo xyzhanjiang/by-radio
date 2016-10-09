@@ -105,63 +105,61 @@ $by-radio-border: #ccc;
 
 .by-checkbox + label:before {
   background-color: $by-radio-bg;
-  border: 1px solid #aaa;
+  border: 1px solid $by-radio-color;
   border-radius: 3px;
   height: 13px;
   left: 0;
   top: 2px;
-  transition: all 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
   width: 13px;
 }
 
 .by-checkbox + label:after {
   background: transparent;
-  border: 0 solid #fff;
+  border: 0 solid $by-radio-color;
   border-width: 0 0 3px 3px;
   height: 3px;
   left: 3px;
-  top: 5px;
-  transform: scale(0) rotate(-45deg);
+  opacity: 0;
+  top: 6px;
+  transform: scale(2) rotate(-45deg);
+  transition: all 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
   width: 6px;
 }
 
-.by-checkbox:focus + label:before {
+.by-checkbox:focus + label::before {
   outline: 1px dotted $by-radio-border;
 }
 
-.by-checkbox:checked + label:before,
-.by-checkbox:indeterminate + label:before {
-  background-color: $by-radio-color;
-  border-color: $by-radio-color;
-}
-
-.by-checkbox:checked + label:after {
+.by-checkbox:checked + label::after {
+  opacity: 1;
   transform: scale(1) rotate(-45deg);
 }
 
-.by-checkbox:disabled + label:before {
+.by-checkbox:disabled + label::before {
   background-color: #eee;
   border-color: #ddd;
   cursor: not-allowed;
 }
 
-.by-checkbox:checked:disabled + label:before {
+.by-checkbox:checked:disabled + label::before {
   border-color: $by-radio-border;
 }
 
-.by-checkbox:checked:disabled + label:after {
+.by-checkbox:checked:disabled + label::after {
   border-color: $by-radio-border;
 }
 
-.by-checkbox:indeterminate + label:after {
-  background-color: #fff;
+.by-checkbox:indeterminate + label::after {
+  background-color: $by-radio-color;
   border: 0;
   height: 3px;
-  transform: scale(1) rotate(0);
+  opacity: 1;
+  top: 8px;
+  transform: rotate(0);
   width: 9px;
 }
 
-.by-checkbox:indeterminate:disabled + label:after {
+.by-checkbox:indeterminate:disabled + label::after {
   background-color: $by-radio-border;
 }
 
@@ -171,7 +169,6 @@ $by-radio-border: #ccc;
  */
 
 .by-switch + label {
-  cursor: pointer;
   padding-left: 32px;
 }
 
@@ -195,12 +192,16 @@ $by-radio-border: #ccc;
   left: 2px;
   position: absolute;
   top: 2px;
-  transition: transform 0.3s;
+  transition: transform 0.3s cubic-bezier(0.8, -0.33, 0.2, 1.33);
   width: 16px;
 }
 
 .by-switch:checked + label::before {
   background-color: $by-radio-color;
+}
+
+.by-switch:focus + label::before {
+  outline: 1px dotted $by-radio-border;
 }
 
 .by-switch:checked + label::after {

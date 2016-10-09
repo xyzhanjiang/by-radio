@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/xyzhanjiang/by-radio.svg?branch=master)](https://travis-ci.org/xyzhanjiang/by-radio)
 
-A radio and checkbox plugin without image. [Demo](https://xyzhanjiang.github.io/by-radio/)
+A radio and checkbox plugin without image. Demo: [https://xyzhanjiang.github.io/by-radio/](https://xyzhanjiang.github.io/by-radio/)
 
 ## Usage
 
@@ -15,12 +15,15 @@ A radio and checkbox plugin without image. [Demo](https://xyzhanjiang.github.io/
 2. Call the plugin:
 
   ``` html
+  <!-- radio -->
   <input class="by-radio" id="radio-example" name="gender" type="radio" value="female">
   <label for="radio-example">Radio</label>
 
+  <!-- or checkbox -->
   <input class="by-checkbox" id="checkbox-example" name="favourite" type="checkbox" value="apple">
   <label for="checkbox-example">Checkbox</label>
 
+  <!-- or switch -->
   <input class="by-switch" id="switch-example" name="wifi" type="checkbox" value="on">
   <label for="switch-example">Switch</label>
   ```
