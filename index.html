@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -36,60 +36,53 @@
 
 <h3>Radio</h3>
 
-<input class="radio" id="radio1" name="gender" type="radio" value="male">
+<input class="by-radio" id="radio1" name="gender" type="radio" value="male">
 <label for="radio1">Male</label>
-<input id="radio2" name="gender" type="radio" value="female">
+<input class="by-radio" id="radio2" name="gender" type="radio" value="female">
 <label for="radio2">Female</label>
 
 <hr>
 <p>Disabled:</p>
-<input disabled id="radio3" type="radio" value="disabled">
+<input class="by-radio" disabled id="radio3" type="radio" value="disabled">
 <label for="radio3">Disabled</label>
 
 <hr>
 <p>Checked &amp; Disabled:</p>
-<input checked disabled id="radio4" type="radio" value="disabled-checked">
+<input checked class="by-checkbox" disabled id="radio4" type="radio" value="disabled-checked">
 <label for="radio4">Disabled-Checked</label>
 
 <h3>Checkbox</h3>
 
-<input id="checkbox1" name="favourite" type="checkbox" value="apple">
+<input class="by-checkbox" id="checkbox1" name="favourite" type="checkbox" value="apple">
 <label for="checkbox1">Apple</label>
-<input id="checkbox2" name="favourite" type="checkbox" value="orange">
+<input class="by-checkbox" id="checkbox2" name="favourite" type="checkbox" value="orange">
 <label for="checkbox2">Orange</label>
-<input id="checkbox3" name="favourite" type="checkbox" value="banana">
+<input class="by-checkbox" id="checkbox3" name="favourite" type="checkbox" value="banana">
 <label for="checkbox3">Banana</label>
 
 <hr>
 <p>Disabled:</p>
-<input disabled id="checkbox4" name="favourite" type="checkbox" value="disabled">
+<input class="by-checkbox" disabled id="checkbox4" name="favourite" type="checkbox" value="disabled">
 <label for="checkbox4">Disabled</label>
 
 <hr>
 <p>Checked &amp; Disabled:</p>
-<input checked disabled id="checkbox5" name="favourite" type="checkbox" value="disabled-checked">
+<input checked class="by-checkbox" disabled id="checkbox5" name="favourite" type="checkbox" value="disabled-checked">
 <label for="checkbox5">Disabled-Checked</label>
 
 <hr>
 <p>State:</p>
-<input id="checkbox-6" type="checkbox">
+<input class="by-checkbox" id="checkbox-6" type="checkbox">
 <label for="checkbox-6">Destroy</label>
 <button id="check-check" type="button">Check</button>
 <button id="check-indeterminate" type="button">Indeterminate</button>
 <button id="check-disable" type="button">Disable</button>
 <button id="check-enable" type="button">Enable</button>
 
-<hr>
-<p>Destroy:</p>
-<input id="checkbox-7" type="checkbox">
-<label for="checkbox-7">Destroy</label>
-<button id="check-destroy" type="button">Destroy</button>
-<button id="check-create" type="button">Create</button>
-
 <h3>Switch</h3>
 
-<label for="switch-1">Wifi:</label>
-<input data-type="switch" id="switch-1" name="switch" type="checkbox" value="on">
+<input class="by-switch" id="switch-1" name="switch" type="checkbox" value="on">
+<label for="switch-1">Wifi</label>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
@@ -114,32 +107,36 @@
       </div>
     </div>
 
-<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="js/by-radio.min.js"></script>
 <script>
-$(function() {
-  $('input[type="radio"], input[type="checkbox"]').byRadio()
+window.addEventListener('load', function() {
+  var checkbox = document.getElementById('checkbox-6')
 
-  $(document)
-    .on('click', '#check-check', function() {
-      $('#checkbox-6').prop('checked', !$('#checkbox-6').prop('checked'))
-    })
-    .on('click', '#check-indeterminate', function() {
-      $('#checkbox-6')[0].indeterminate = true
-    })
-    .on('click', '#check-disable', function() {
-      $('#checkbox-6').prop('disabled', true)
-    })
-    .on('click', '#check-enable', function() {
-      $('#checkbox-6').prop('disabled', false)
-    })
-    .on('click', '#check-destroy', function() {
-      $('#checkbox-7').byRadio('destroy')
-    })
-    .on('click', '#check-create', function() {
-      $('#checkbox-7').byRadio()
-    })
-})
+  if (checkbox.type !== 'checkbox') {
+    return
+  }
+
+  document.addEventListener('click', function(e) {
+    switch(e.target.id) {
+      case 'check-check':
+        checkbox.indeterminate = false
+        checkbox.checked = !checkbox.checked
+        break
+
+      case 'check-indeterminate':
+        checkbox.indeterminate = true
+        break
+
+      case 'check-disable':
+        checkbox.disabled = true
+        break
+
+      case 'check-enable':
+        checkbox.disabled = false
+        break
+    }
+  }, false)
+
+}, false)
 </script>
   </body>
 </html>
