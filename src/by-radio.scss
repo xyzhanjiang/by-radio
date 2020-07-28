@@ -1,6 +1,6 @@
 /**
- * Radio.js
- * Copyright (c) 2016 xyzhanjiang & contributors
+ * Radio.scss
+ * Copyright (c) 2016 - 2020 xyzhanjiang & contributors
  *
  * Licensed under the MIT License.
  *
@@ -10,13 +10,17 @@
 $legacy-support-for-ie6: false !default;
 $legacy-support-for-ie7: false !default;
 
-$by-radio-bg: #fff;
-$by-radio-color: #690;
-$by-radio-border: #ccc;
+$by-radio-bg:           #fff !default;
+$by-radio-color:        #03c895 !default;
+$by-radio-border-color: #dbdbdb !default;
+$by-radio-border-width: 2px !default;
+$by-radio-hover-color:  $by-radio-color !default;
+$by-radio-focus-color:  #aaa !default;
 
 .by-radio,
 .by-checkbox,
 .by-switch {
+  clip: rect(0,0,0,0);
   opacity: 0;
   position: absolute;
 }
@@ -24,9 +28,9 @@ $by-radio-border: #ccc;
 .by-radio + label,
 .by-checkbox + label,
 .by-switch + label {
+  cursor: pointer;
   display: inline-block;
   min-height: 20px;
-  min-width: 15px;
   padding-left: 20px;
   position: relative;
 }
@@ -40,6 +44,7 @@ $by-radio-border: #ccc;
   &::before,
   &::after {
     border-radius: 50%;
+    box-sizing: border-box;
     content: " ";
     position: absolute;
   }
@@ -47,25 +52,33 @@ $by-radio-border: #ccc;
 
 .by-radio + label::before {
   background-color: $by-radio-bg;
-  border: 1px solid #aaa;
-  height: 13px;
+  border: $by-radio-border-width solid $by-radio-border-color;
+  bottom: 0;
+  height: 16px;
   left: 0;
-  top: 2px;
-  width: 13px;
+  margin: auto 0;
+  top: 0;
+  width: 16px;
 }
 
 .by-radio + label::after {
   background-color: $by-radio-color;
-  height: 9px;
-  left: 3px;
-  top: 5px;
+  bottom: 0;
+  height: 8px;
+  left: 4px;
+  margin: auto 0;
+  top: 0;
   transform: scale(0);
   transition: transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-  width: 9px;
+  width: 8px;
+}
+
+.by-radio + label:hover::before {
+  border-color: $by-radio-hover-color;
 }
 
 .by-radio:focus + label::before {
-  outline: 1px dotted $by-radio-border;
+  outline: 1px dotted $by-radio-focus-color;
 }
 
 .by-radio:checked + label::before {
@@ -87,7 +100,7 @@ $by-radio-border: #ccc;
 }
 
 .by-radio:disabled + label::after {
-  background-color: $by-radio-border;
+  background-color: $by-radio-border-color;
 }
 
 /*
@@ -98,6 +111,7 @@ $by-radio-border: #ccc;
 .by-checkbox + label {
   &::before,
   &::after {
+    box-sizing: border-box;
     content: " ";
     position: absolute;
   }
@@ -105,29 +119,42 @@ $by-radio-border: #ccc;
 
 .by-checkbox + label:before {
   background-color: $by-radio-bg;
-  border: 1px solid $by-radio-color;
+  border: $by-radio-border-width solid $by-radio-border-color;
   border-radius: 3px;
-  height: 13px;
+  bottom: 0;
+  height: 16px;
   left: 0;
-  top: 2px;
-  width: 13px;
+  margin: auto 0;
+  top: 0;
+  width: 16px;
 }
 
 .by-checkbox + label:after {
   background: transparent;
-  border: 0 solid $by-radio-color;
+  border: 0 solid #fff;
   border-width: 0 0 3px 3px;
-  height: 3px;
+  bottom: 0;
+  height: 6px;
   left: 3px;
+  margin: auto 0;
   opacity: 0;
-  top: 6px;
+  top: 0;
   transform: scale(2) rotate(-45deg);
   transition: all 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-  width: 6px;
+  width: 10px;
+}
+
+.by-checkbox + label:hover::before {
+  border-color: $by-radio-hover-color;
 }
 
 .by-checkbox:focus + label::before {
-  outline: 1px dotted $by-radio-border;
+  outline: 1px dotted $by-radio-focus-color;
+}
+
+.by-checkbox:checked + label::before {
+  background-color: $by-radio-color;
+  border-color: $by-radio-color;
 }
 
 .by-checkbox:checked + label::after {
@@ -142,11 +169,11 @@ $by-radio-border: #ccc;
 }
 
 .by-checkbox:checked:disabled + label::before {
-  border-color: $by-radio-border;
+  border-color: $by-radio-border-color;
 }
 
 .by-checkbox:checked:disabled + label::after {
-  border-color: $by-radio-border;
+  border-color: $by-radio-border-color;
 }
 
 .by-checkbox:indeterminate + label::after {
@@ -160,7 +187,7 @@ $by-radio-border: #ccc;
 }
 
 .by-checkbox:indeterminate:disabled + label::after {
-  background-color: $by-radio-border;
+  background-color: $by-radio-border-color;
 }
 
 /*
@@ -201,7 +228,7 @@ $by-radio-border: #ccc;
 }
 
 .by-switch:focus + label::before {
-  outline: 1px dotted $by-radio-border;
+  outline: 1px dotted $by-radio-focus-color;
 }
 
 .by-switch:checked + label::after {

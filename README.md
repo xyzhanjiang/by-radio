@@ -8,36 +8,36 @@ A radio and checkbox plugin without image. Demo: [https://xyzhanjiang.github.io/
 
 1. Include plugin's code:
 
-  ``` html
-  <link rel="stylesheet" href="dist/css/by-radio.css">
-  ```
+``` html
+<link rel="stylesheet" href="dist/by-radio.css">
+```
+
+or
+
+``` javascript
+import '@by/radio'
+```
 
 2. Call the plugin:
 
-  ``` html
-  <!-- radio -->
-  <input class="by-radio" id="radio-example" name="gender" type="radio" value="female">
-  <label for="radio-example">Radio</label>
+``` html
+<!-- radio -->
+<input class="by-radio" id="radio-example" name="gender" type="radio" value="female">
+<label for="radio-example">Radio</label>
 
-  <!-- or checkbox -->
-  <input class="by-checkbox" id="checkbox-example" name="favourite" type="checkbox" value="apple">
-  <label for="checkbox-example">Checkbox</label>
+<!-- or checkbox -->
+<input class="by-checkbox" id="checkbox-example" name="favourite" type="checkbox" value="apple">
+<label for="checkbox-example">Checkbox</label>
 
-  <!-- or switch -->
-  <input class="by-switch" id="switch-example" name="wifi" type="checkbox" value="on">
-  <label for="switch-example">Switch</label>
-  ```
+<!-- or switch -->
+<input class="by-switch" id="switch-example" name="wifi" type="checkbox" value="on">
+<label for="switch-example">Switch</label>
+```
 
 ## Browser support
 
 * Google Chrome
-* Mozilla Firefox 3.5+
-* Apple Safari 3.2+
-* Opera 10.1+
 * Microsoft Internet Explorer 9.0+
-* Apple Safari on iOS 3.2+
-* Android 2.1+
-* Opera Mobile 12.0+
 
 ## License
 
