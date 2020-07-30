@@ -6,16 +6,22 @@
  *
  * @author xyzhanjiang <xyzhanjiang@qq.com>
  */
-.by-radio,
-.by-checkbox,
-.by-switch {
+input[type="radio"].by-radio,
+.by-radio input[type="radio"],
+input[type="checkbox"].by-checkbox,
+.by-checkbox input[type="checkbox"],
+input[type="checkbox"].by-switch,
+.by-switch input[type="checkbox"] {
   clip: rect(0, 0, 0, 0);
   opacity: 0;
   position: absolute; }
 
-.by-radio + label,
-.by-checkbox + label,
-.by-switch + label {
+input[type="radio"].by-radio + label,
+label.by-radio,
+input[type="checkbox"].by-checkbox + label,
+label.by-checkbox,
+input[type="checkbox"].by-switch + label,
+label.by-switch {
   cursor: pointer;
   display: inline-block;
   min-height: 20px;
@@ -26,13 +32,16 @@
  * Radio
  * ==============================================
  */
-.by-radio + label::before, .by-radio + label::after {
+input[type="radio"].by-radio + label::before, input[type="radio"].by-radio + label::after,
+.by-radio-item::before,
+.by-radio-item::after {
   border-radius: 50%;
   box-sizing: border-box;
   content: " ";
   position: absolute; }
 
-.by-radio + label::before {
+input[type="radio"].by-radio + label::before,
+.by-radio-item::before {
   background-color: #fff;
   border: 2px solid #dbdbdb;
   bottom: 0;
@@ -42,7 +51,8 @@
   top: 0;
   width: 16px; }
 
-.by-radio + label::after {
+input[type="radio"].by-radio + label::after,
+.by-radio-item::after {
   background-color: #03c895;
   bottom: 0;
   height: 8px;
@@ -53,42 +63,49 @@
   transition: transform 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
   width: 8px; }
 
-.by-radio + label:hover::before {
+input[type="radio"].by-radio + label:hover::before,
+.by-radio-item:hover::before {
   border-color: #03c895; }
 
-.by-radio:focus + label::before {
+input[type="radio"].by-radio:focus + label::before,
+.by-radio input[type="radio"]:focus + .by-radio-item::before {
   outline: 1px dotted #aaa; }
 
-.by-radio:checked + label::before {
+input[type="radio"].by-radio:checked + label::before,
+.by-radio input[type="radio"]:checked + .by-radio-item::before {
   border-color: #03c895; }
 
-.by-radio:checked + label::after {
+input[type="radio"].by-radio:checked + label::after,
+.by-radio input[type="radio"]:checked + .by-radio-item::after {
   background-color: #03c895;
   transform: scale(1); }
 
-.by-radio:disabled + label {
+input[type="radio"].by-radio:disabled + label,
+.by-radio input[type="radio"]:disabled + .by-radio-item {
   cursor: not-allowed; }
 
-.by-radio:disabled + label::before {
+input[type="radio"].by-radio:disabled + label::before,
+.by-radio input[type="radio"]:disabled + .by-radio-item::before {
   background-color: #eee;
   border-color: #ddd; }
 
-.by-radio:disabled + label::after {
+input[type="radio"].by-radio:disabled + label::after,
+.by-radio input[type="radio"]:disabled + .by-radio-item::after {
   background-color: #dbdbdb; }
-
-.by-radio + label + .by-radio {
-  margin-left: .5em; }
 
 /*
  * Checkbox
  * ==============================================
  */
-.by-checkbox + label::before, .by-checkbox + label::after {
+input[type="checkbox"].by-checkbox + label::before, input[type="checkbox"].by-checkbox + label::after,
+.by-checkbox-item::before,
+.by-checkbox-item::after {
   box-sizing: border-box;
   content: " ";
   position: absolute; }
 
-.by-checkbox + label:before {
+input[type="checkbox"].by-checkbox + label::before,
+.by-checkbox-item::before {
   background-color: #fff;
   border: 2px solid #dbdbdb;
   border-radius: 3px;
@@ -99,7 +116,8 @@
   top: 0;
   width: 16px; }
 
-.by-checkbox + label:after {
+input[type="checkbox"].by-checkbox + label:after,
+.by-checkbox-item::after {
   background: transparent;
   border: 0 solid #fff;
   border-width: 0 0 3px 3px;
@@ -113,32 +131,43 @@
   transition: all 0.2s cubic-bezier(0.8, -0.33, 0.2, 1.33);
   width: 10px; }
 
-.by-checkbox + label:hover::before {
+input[type="checkbox"].by-checkbox + label:hover::before,
+.by-checkbox-item:hover::before {
   border-color: #03c895; }
 
-.by-checkbox:focus + label::before {
+input[type="checkbox"].by-checkbox:focus + label::before,
+.by-checkbox input[type="checkbox"]:focus + .by-checkbox-item::before {
   outline: 1px dotted #aaa; }
 
-.by-checkbox:checked + label::before {
+input[type="checkbox"].by-checkbox:checked + label::before,
+.by-checkbox input[type="checkbox"]:checked + .by-checkbox-item::before {
   background-color: #03c895;
   border-color: #03c895; }
 
-.by-checkbox:checked + label::after {
+input[type="checkbox"].by-checkbox:checked + label::after,
+.by-checkbox input[type="checkbox"]:checked + .by-checkbox-item::after {
   opacity: 1;
   transform: scale(1) rotate(-45deg); }
 
-.by-checkbox:disabled + label::before {
-  background-color: #eee;
-  border-color: #ddd;
+input[type="checkbox"].by-checkbox:disabled + label,
+.by-checkbox input[type="checkbox"]:disabled + .by-checkbox-item {
   cursor: not-allowed; }
 
-.by-checkbox:checked:disabled + label::before {
+input[type="checkbox"].by-checkbox:disabled + label::before,
+.by-checkbox input[type="checkbox"]:disabled + .by-checkbox-item::before {
+  background-color: #eee;
+  border-color: #ddd; }
+
+input[type="checkbox"].by-checkbox:checked:disabled + label::before,
+.by-checkbox input[type="checkbox"]:checked:disabled + .by-checkbox-item::before {
   border-color: #dbdbdb; }
 
-.by-checkbox:checked:disabled + label::after {
+input[type="checkbox"].by-checkbox:checked:disabled + label::after,
+.by-checkbox input[type="checkbox"]:checked:disabled + .by-checkbox-item::after {
   border-color: #dbdbdb; }
 
-.by-checkbox:indeterminate + label::after {
+input[type="checkbox"].by-checkbox:indeterminate + label::after,
+.by-checkbox input[type="checkbox"]:indeterminate + .by-checkbox-item::after {
   background-color: #03c895;
   border: 0;
   height: 3px;
@@ -147,17 +176,20 @@
   transform: rotate(0);
   width: 9px; }
 
-.by-checkbox:indeterminate:disabled + label::after {
+input[type="checkbox"].by-checkbox:indeterminate:disabled + label::after,
+.by-checkbox input[type="checkbox"]:indeterminate:disabled + .by-checkbox-item::after {
   background-color: #dbdbdb; }
 
 /*
  * Switch
  * ==============================================
  */
-.by-switch + label {
+input[type="checkbox"].by-switch + label,
+label.by-switch {
   padding-left: 32px; }
 
-.by-switch + label::before {
+.by-switch + label::before,
+.by-switch-item::before {
   background-color: #e0e0e0;
   border-radius: 10px;
   content: " ";
@@ -168,7 +200,8 @@
   top: 0;
   width: 30px; }
 
-.by-switch + label::after {
+.by-switch + label::after,
+.by-switch-item::after {
   background-color: #fff;
   border-radius: 8px;
   content: " ";
@@ -179,11 +212,14 @@
   transition: transform 0.3s cubic-bezier(0.8, -0.33, 0.2, 1.33);
   width: 16px; }
 
-.by-switch:checked + label::before {
-  background-color: #03c895; }
-
-.by-switch:focus + label::before {
+.by-switch:focus + label::before,
+.by-switch input[type="checkbox"]:focus + .by-switch-item::before {
   outline: 1px dotted #aaa; }
 
-.by-switch:checked + label::after {
+.by-switch:checked + label::before,
+.by-switch input[type="checkbox"]:checked + .by-switch-item::before {
+  background-color: #03c895; }
+
+.by-switch:checked + label::after,
+.by-switch input[type="checkbox"]:checked + .by-switch-item::after {
   transform: translateX(10px); }

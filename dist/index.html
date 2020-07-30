@@ -9,6 +9,7 @@
 
 <body>
 <form action="#" method="post">
+  <h2>ID</h2>
   <fieldset>
     <input class="by-radio" id="radio1" name="gender" type="radio" value="male">
     <label for="radio1">Male</label>
@@ -32,6 +33,52 @@
     <hr>
     <input class="by-switch" id="switch-1" name="favourite" type="checkbox" value="apple">
     <label for="switch-1">Switch</label>
+  </fieldset>
+  <h2>No ID</h2>
+  <fieldset>
+    <label class="by-radio">
+      <input name="gender" type="radio" value="male">
+      <span class="by-radio-item">Male</span>
+    </label>
+    <label class="by-radio">
+      <input name="gender" type="radio" value="female">
+      <span class="by-radio-item">Female</span>
+    </label>
+    <label class="by-radio">
+      <input disabled name="gender" type="radio" value="disabled">
+      <span class="by-radio-item">Disabled</span>
+    </label>
+    <label class="by-radio">
+      <input checked disabled name="gender3" type="radio" value="disabled-checked">
+      <span class="by-radio-item">Disabled-Checked</span>
+    </label>
+    <hr>
+    <label class="by-checkbox">
+      <input name="favourite" type="checkbox" value="apple">
+      <span class="by-checkbox-item">Apple</span>
+    </label>
+    <label class="by-checkbox">
+      <input name="favourite" type="checkbox" value="orange">
+      <span class="by-checkbox-item">Orange</span>
+    </label>
+    <label class="by-checkbox">
+      <input name="favourite" type="checkbox" value="banana">
+      <span class="by-checkbox-item">Banana</span>
+    </label>
+    
+    <label class="by-checkbox">
+      <input disabled name="favourite" type="checkbox" value="disabled">
+      <span class="by-checkbox-item">Disabled</span>
+    </label>
+    <label class="by-checkbox">
+      <input checked disabled name="favourite" type="checkbox" value="disabled-checked">
+      <span class="by-checkbox-item">Disabled-Checked</span>
+    </label>
+    <hr>
+    <label class="by-switch">
+      <input name="favourite" type="checkbox" value="apple">
+      <span class="by-switch-item">Switch</span>
+    </label>
   </fieldset>
 </form>
 </body>

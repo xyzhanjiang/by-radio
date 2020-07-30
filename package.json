@@ -1,6 +1,6 @@
 {
-  "name": "@by/radio",
-  "version": "1.2.0",
+  "name": "by-radio",
+  "version": "1.2.1",
   "description": "A radio and checkbox plugin without image.",
   "main": "dist/by-radio.css",
   "dependencies": {},
@@ -17,6 +17,6 @@
     "test": "echo 1",
     "production": "gulp"
   },
-  "author": "",
+  "author": "by.Genesis",
   "license": "MIT"
 }
