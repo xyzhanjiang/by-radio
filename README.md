@@ -64,11 +64,11 @@ or no id property:
 
 ## Customize
 
-In a scss file
+In a **.scss** file
 
 ``` css
 $by-radio-color: #36f;
-@import 'by-radio'
+@import 'by-radio/src/by-radio.scss'
 ```
 
 ## Browser support
