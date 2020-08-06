@@ -1,7 +1,7 @@
 {
   "name": "by-radio",
-  "version": "1.2.1",
-  "description": "A radio and checkbox plugin without image.",
+  "version": "1.2.2",
+  "description": "A radio and checkbox plugin without image, prue CSS",
   "main": "dist/by-radio.css",
   "dependencies": {},
   "devDependencies": {
@@ -18,5 +18,11 @@
     "production": "gulp"
   },
   "author": "by.Genesis",
-  "license": "MIT"
+  "license": "MIT",
+  "browserslist": [
+    ">0.2%",
+    "not ie 8",
+    "not dead",
+    "not op_mini all"
+  ]
 }

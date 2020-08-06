@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/xyzhanjiang/by-radio.svg?branch=master)](https://travis-ci.org/xyzhanjiang/by-radio)
 
-A radio and checkbox plugin without image. Demo: [https://xyzhanjiang.github.io/by-radio/](https://xyzhanjiang.github.io/by-radio/)
+A radio and checkbox plugin without image, pure CSS. Demo: [https://xyzhanjiang.github.io/by-radio/](https://xyzhanjiang.github.io/by-radio/)
 
 ## Install
 
@@ -24,40 +24,40 @@ or
 import 'by-radio'
 ```
 
-2. Call the plugin:
+2. Call the plugin, only HTML
 
 ``` html
 <!-- radio -->
-<input class="by-radio" id="radio-example" name="gender" type="radio" value="female">
+<input class="by-radio" id="radio-example" type="radio">
 <label for="radio-example">Radio</label>
 
 <!-- or checkbox -->
-<input class="by-checkbox" id="checkbox-example" name="favourite" type="checkbox" value="apple">
+<input class="by-checkbox" id="checkbox-example" type="checkbox">
 <label for="checkbox-example">Checkbox</label>
 
 <!-- or switch -->
-<input class="by-switch" id="switch-example" name="wifi" type="checkbox" value="on">
+<input class="by-switch" id="switch-example" type="checkbox">
 <label for="switch-example">Switch</label>
 ```
 
-or no id property:
+or without id property
 
 ``` html
 <!-- radio -->
 <label class="by-radio">
-  <input name="gender" type="radio" value="female">
+  <input type="radio">
   <span class="by-radio-item">Radio</span>
 </label>
 
 <!-- or checkbox -->
 <label class="by-checkbox">
-  <input name="favourite" type="checkbox" value="apple">
+  <input type="checkbox">
   <span class="by-checkbox-item">Checkbox</span>
 </label>
 
 <!-- or switch -->
 <label class="by-switch">
-  <input name="wifi" type="checkbox" value="on">
+  <input type="checkbox">
   <span class="by-switch-item">Switch</span>
 </label>
 ```
@@ -67,9 +67,11 @@ or no id property:
 In a **.scss** file
 
 ``` css
-$by-radio-color: #36f;
+$by-radio-color: #36f; // Theme color
 @import 'by-radio/src/by-radio.scss'
 ```
+
+The control size will be the same as font size
 
 ## Browser support
 
