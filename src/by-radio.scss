@@ -27,23 +27,17 @@ $by-radio-timing-function: cubic-bezier(0.8, -0.33, 0.2, 1.33) !default;
 $by-switch-height: calc(#{$by-radio-size} + 4px) !default;
 $by-switch-width:  calc(calc(#{$by-radio-size} + 4px) * 1.5) !default;
 
-input[type="radio"].by-radio,
-.by-radio input[type="radio"],
-input[type="checkbox"].by-checkbox,
-.by-checkbox input[type="checkbox"],
-input[type="checkbox"].by-switch,
-.by-switch input[type="checkbox"] {
+.by-radio,
+.by-checkbox,
+.by-switch {
   clip: rect(0,0,0,0);
   opacity: 0;
   position: absolute;
 }
 
-input[type="radio"].by-radio + label,
-label.by-radio,
-input[type="checkbox"].by-checkbox + label,
-label.by-checkbox,
-input[type="checkbox"].by-switch + label,
-label.by-switch {
+.by-radio + .by-checkable,
+.by-checkbox + .by-checkable,
+.by-switch + .by-checkable {
   cursor: pointer;
   display: inline-block;
   min-height: 20px;
@@ -56,8 +50,7 @@ label.by-switch {
  * ==============================================
  */
 
-input[type="radio"].by-radio + label,
-.by-radio-item {
+.by-radio + .by-checkable {
   &::before,
   &::after {
     border-radius: 50%;
@@ -67,8 +60,7 @@ input[type="radio"].by-radio + label,
   }
 }
 
-input[type="radio"].by-radio + label::before,
-.by-radio-item::before {
+.by-radio + .by-checkable::before {
   background-color: $by-radio-bg;
   border: $by-radio-border-width solid $by-radio-border-color;
   bottom: 0;
@@ -79,8 +71,7 @@ input[type="radio"].by-radio + label::before,
   width: $by-radio-size;
 }
 
-input[type="radio"].by-radio + label::after,
-.by-radio-item::after {
+.by-radio + .by-checkable::after {
   background-color: $by-radio-color;
   bottom: 0;
   height: $by-radio-circle;
@@ -92,40 +83,33 @@ input[type="radio"].by-radio + label::after,
   width: $by-radio-circle;
 }
 
-input[type="radio"].by-radio + label:hover::before,
-.by-radio-item:hover::before {
+.by-radio + .by-checkable:hover::before {
   border-color: $by-radio-hover-color;
 }
 
-input[type="radio"].by-radio:focus + label::before,
-.by-radio input[type="radio"]:focus ~ .by-radio-item::before {
+.by-radio:focus + .by-checkable::before {
   outline: 1px dotted $by-radio-focus-color;
 }
 
-input[type="radio"].by-radio:checked + label::before,
-.by-radio input[type="radio"]:checked ~ .by-radio-item::before {
+.by-radio:checked + .by-checkable::before {
   border-color: $by-radio-color;
 }
 
-input[type="radio"].by-radio:checked + label::after,
-.by-radio input[type="radio"]:checked ~ .by-radio-item::after {
+.by-radio:checked + .by-checkable::after {
   background-color: $by-radio-color;
   transform: scale(1);
 }
 
-input[type="radio"].by-radio:disabled + label,
-.by-radio input[type="radio"]:disabled ~ .by-radio-item {
+.by-radio:disabled + .by-checkable {
   cursor: not-allowed;
 }
 
-input[type="radio"].by-radio:disabled + label::before,
-.by-radio input[type="radio"]:disabled ~ .by-radio-item::before {
+.by-radio:disabled + .by-checkable::before {
   background-color: #eee;
   border-color: #ddd;
 }
 
-input[type="radio"].by-radio:disabled + label::after,
-.by-radio input[type="radio"]:disabled ~ .by-radio-item::after {
+.by-radio:disabled + .by-checkable::after {
   background-color: $by-radio-border-color;
 }
 
@@ -134,8 +118,7 @@ input[type="radio"].by-radio:disabled + label::after,
  * ==============================================
  */
 
-input[type="checkbox"].by-checkbox + label,
-.by-checkbox-item {
+.by-checkbox + .by-checkable {
   &::before,
   &::after {
     box-sizing: border-box;
@@ -144,8 +127,7 @@ input[type="checkbox"].by-checkbox + label,
   }
 }
 
-input[type="checkbox"].by-checkbox + label::before,
-.by-checkbox-item::before {
+.by-checkbox + .by-checkable::before {
   background-color: $by-radio-bg;
   border: $by-radio-border-width solid $by-radio-border-color;
   border-radius: 3px;
@@ -157,8 +139,7 @@ input[type="checkbox"].by-checkbox + label::before,
   width: $by-radio-size;
 }
 
-input[type="checkbox"].by-checkbox + label:after,
-.by-checkbox-item::after {
+.by-checkbox + .by-checkable::after {
   background: transparent;
   border: 0 solid #fff;
   border-width: 0 0 2px 2px;
@@ -173,57 +154,47 @@ input[type="checkbox"].by-checkbox + label:after,
   width: calc(#{$by-radio-size} - 6px);
 }
 
-input[type="checkbox"].by-checkbox + label:hover::before,
-.by-checkbox-item:hover::before {
+.by-checkbox + .by-checkable:hover::before {
   border-color: $by-radio-hover-color;
 }
 
-input[type="checkbox"].by-checkbox:focus + label::before,
-.by-checkbox input[type="checkbox"]:focus ~ .by-checkbox-item::before {
+.by-checkbox:focus + .by-checkable::before {
   outline: 1px dotted $by-radio-focus-color;
 }
 
-input[type="checkbox"].by-checkbox:checked + label::before,
-.by-checkbox input[type="checkbox"]:checked ~ .by-checkbox-item::before {
+.by-checkbox:checked + .by-checkable::before {
   background-color: $by-radio-color;
   border-color: $by-radio-color;
 }
 
-input[type="checkbox"].by-checkbox:checked + label::after,
-.by-checkbox input[type="checkbox"]:checked ~ .by-checkbox-item::after {
+.by-checkbox:checked + .by-checkable::after {
   opacity: 1;
   transform: scale(1) rotate(-45deg);
 }
 
-input[type="checkbox"].by-checkbox:disabled + label,
-.by-checkbox input[type="checkbox"]:disabled ~ .by-checkbox-item {
+.by-checkbox:disabled + .by-checkable {
   cursor: not-allowed;
 }
 
-input[type="checkbox"].by-checkbox:disabled + label::before,
-.by-checkbox input[type="checkbox"]:disabled ~ .by-checkbox-item::before {
+.by-checkbox:disabled + .by-checkable::before {
   background-color: #eee;
   border-color: #ddd;
 }
 
-input[type="checkbox"].by-checkbox:checked:disabled + label::before,
-.by-checkbox input[type="checkbox"]:checked:disabled ~ .by-checkbox-item::before {
+.by-checkbox:checked:disabled + .by-checkable::before {
   border-color: $by-radio-border-color;
 }
 
-input[type="checkbox"].by-checkbox:checked:disabled + label::after,
-.by-checkbox input[type="checkbox"]:checked:disabled ~ .by-checkbox-item::after {
+.by-checkbox:checked:disabled + .by-checkable::after {
   border-color: $by-radio-border-color;
 }
 
-input[type="checkbox"].by-checkbox:indeterminate + label::before,
-.by-checkbox input[type="checkbox"]:indeterminate ~ .by-checkbox-item::before {
+.by-checkbox:indeterminate + .by-checkable::before {
   background-color: $by-radio-color;
   border-color: $by-radio-color;
 }
 
-input[type="checkbox"].by-checkbox:indeterminate + label::after,
-.by-checkbox input[type="checkbox"]:indeterminate ~ .by-checkbox-item::after {
+.by-checkbox:indeterminate + .by-checkable::after {
   background-color: #fff;
   border: 0;
   bottom: 0;
@@ -235,14 +206,12 @@ input[type="checkbox"].by-checkbox:indeterminate + label::after,
   width: calc(#{$by-radio-size} - 6px);
 }
 
-input[type="checkbox"].by-checkbox:indeterminate:disabled + label::before,
-.by-checkbox input[type="checkbox"]:indeterminate:disabled ~ .by-checkbox-item::before {
+.by-checkbox:indeterminate:disabled + .by-checkable::before {
   background-color: #eee;
   border-color: $by-radio-border-color;
 }
 
-input[type="checkbox"].by-checkbox:indeterminate:disabled + label::after,
-.by-checkbox input[type="checkbox"]:indeterminate:disabled ~ .by-checkbox-item::after {
+.by-checkbox:indeterminate:disabled + .by-checkable::after {
   background-color: $by-radio-border-color;
 }
 
@@ -251,13 +220,11 @@ input[type="checkbox"].by-checkbox:indeterminate:disabled + label::after,
  * ==============================================
  */
 
-input[type="checkbox"].by-switch + label,
-label.by-switch {
+.by-switch + .by-checkable {
   padding-left: calc(#{$by-switch-width} + .2em);
 }
 
-.by-switch + label::before,
-.by-switch-item::before {
+.by-switch + .by-checkable::before {
   background-color: #e0e0e0;
   border-radius: calc(#{$by-switch-height} / 2);
   content: " ";
@@ -269,8 +236,7 @@ label.by-switch {
   width: $by-switch-width;
 }
 
-.by-switch + label::after,
-.by-switch-item::after {
+.by-switch + .by-checkable::after {
   background-color: #fff;
   border-radius: calc(#{$by-radio-size} / 2);
   content: " ";
@@ -282,17 +248,14 @@ label.by-switch {
   width: $by-radio-size;
 }
 
-.by-switch:focus + label::before,
-.by-switch input[type="checkbox"]:focus ~ .by-switch-item::before {
+.by-switch:focus + .by-checkable::before {
   outline: 1px dotted $by-radio-focus-color;
 }
 
-.by-switch:checked + label::before,
-.by-switch input[type="checkbox"]:checked ~ .by-switch-item::before {
+.by-switch:checked + .by-checkable::before {
   background-color: $by-radio-color;
 }
 
-.by-switch:checked + label::after,
-.by-switch input[type="checkbox"]:checked ~ .by-switch-item::after {
+.by-switch:checked + .by-checkable::after {
   transform: translateX(calc(calc(#{$by-radio-size} + 4px) / 2));
 }
